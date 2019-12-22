@@ -30,7 +30,7 @@ double get_distance(int x1,int y1, int x2, int y2){
 
 void classify_points(){
     long i; int j; int cluster_index; double cur_dist=0,min_dist=DBL_MAX;
-    #pragma omp parallel for num_threads(num_threads) private(cluster_index, j , i, cur_dist,min_dist)
+    #pragma omp parallel for num_threads(num_threads) private(cluster_index, j , i, cur_dist, min_dist)
     for(i=0;i<num_points;i++){
         cluster_index=-1;
         cur_dist=0,min_dist=DBL_MAX;
@@ -41,7 +41,7 @@ void classify_points(){
                 cluster_index=j;    
             }
         }
-  printf("%ld %ld belongs to %d %d \n", datapoints[i][0],datapoints[i][1],cluster[cluster_index][0],cluster[cluster_index][1] );
+  printf("%ld %ld belongs to cluster %d %d \n", datapoints[i][0],datapoints[i][1],cluster[cluster_index][0],cluster[cluster_index][1] );
                 cluster_count[cluster_index]++;
         
     }
