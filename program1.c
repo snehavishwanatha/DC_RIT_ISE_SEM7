@@ -11,9 +11,7 @@ int main()
     printf("SIZE:\n");
     scanf("%d",&num);
     int a[num];
-    //a = (int *)malloc(sizeof(int) * num);
     for(i=0;i<num;i++)
-        //scanf("%d",&a[i]);
         a[i]=rand()%100;
 
     printf("\nUnsorted array :\n");
