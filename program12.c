@@ -4,14 +4,9 @@
 #include<mpi.h>
 
 int f(int i){
-    int i4_huge=21475646,j,k,value=i;
     
-    for(j=1;j<=5;j++){
-        k=value/127773;
-        value=16807*(value-k*1277773)-k*2836;
-        if(value<=0)
-            value+=i4_huge;
-    }
+    int value = i * i;
+       
     return value;
 }
 
@@ -30,14 +25,14 @@ int search(int a, int b, int c, int id, int p){
 
 
 void main(int argc, char* argv[]){
-    int a,b,c,i4_huge=214756461,id,j,p;
+    int a,b,c,id,j,p;
     double wtime;
     
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &id);
     MPI_Comm_size(MPI_COMM_WORLD, &p);
     
-    a=1; b=i4_huge; c=45;
+    a=1; b=10000000; c=49;
     
     if(id==0){
         printf("A=%d,\tB=%d,\tC=%d\n",a,b,c);
