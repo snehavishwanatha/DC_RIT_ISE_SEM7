@@ -33,11 +33,7 @@ void sine_table(int sine_num){
 	double a,pi=3.14159;
 	double sines[sine_num];
 	for(i=0;i<sine_num;i++){
-		sines[i]=0.0;
-		for(j=0;j<=i;j++){
-			a=(double)(j) * pi/(double)(sine_num-1);
-			sines[i]=sines[i]+ sin(a);
-		}
+		sines[i]=sin(i);
 	}
 	for(int z=0;z<sine_num;z++){
 				printf("%lf\n",sines[z]);
